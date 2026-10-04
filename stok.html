@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Informasi stok bahan ajar SITTA Desk">
+  <title>SITTA Desk | Stok</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="app-body" data-page="stok">
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-top">
+        <a href="dashboard.html" class="brand-lockup sidebar-brand">
+          <div class="brand-mark">S</div>
+          <div><strong>SITTA Desk</strong><span>UT Materials Hub</span></div>
+        </a>
+        <button class="sidebar-close" id="sidebarClose" aria-label="Tutup menu">×</button>
+      </div>
+      <nav class="side-nav" aria-label="Navigasi utama">
+        <a class="nav-item" href="dashboard.html"><span class="nav-icon">⌂</span><span>Dashboard</span></a>
+        <a class="nav-item active" href="stok.html"><span class="nav-icon">▦</span><span>Informasi Bahan Ajar</span></a>
+        <a class="nav-item" href="tracking.html"><span class="nav-icon">➜</span><span>Tracking Pengiriman</span></a>
+        <a class="nav-item" href="dashboard.html#progressSection"><span class="nav-icon">◔</span><span>Monitoring Progress</span></a>
+        <a class="nav-item" href="dashboard.html#rekapSection"><span class="nav-icon">▤</span><span>Rekap Bahan Ajar</span></a>
+        <a class="nav-item" href="dashboard.html#historySection"><span class="nav-icon">↺</span><span>Histori Transaksi</span></a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="support-card"><span class="support-dot"></span><div><strong>Mode praktik</strong><span>Front-end only</span></div></div>
+        <button class="logout-button" id="logoutButton"><span>⇥</span> Keluar</button>
+      </div>
+    </aside>
+
+    <div class="main-column">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="menu-toggle" id="menuToggle" aria-label="Buka menu">☰</button>
+          <div><span class="topbar-kicker">INFORMASI BAHAN AJAR</span><strong>Stok Bahan Ajar</strong></div>
+        </div>
+        <div class="topbar-right">
+          <button class="icon-button" id="themeToggle" aria-label="Ganti tema">☾</button>
+          <div class="user-chip"><div class="avatar" id="userAvatar">A</div><div class="user-copy"><strong id="userName">Administrator</strong><span id="userRole">Administrator</span></div></div>
+        </div>
+      </header>
+
+      <main class="content-area">
+        <section class="page-intro stok-intro">
+          <div>
+            <p class="eyebrow">DATA DINAMIS</p>
+            <h1>Stok bahan ajar</h1>
+            <p>Data pada tabel dibuat otomatis dari konstanta <code>dataBahanAjar</code>, lalu baris baru dapat ditambahkan dengan JavaScript DOM.</p>
+          </div>
+          <button class="primary-button" id="scrollAddButton" type="button"><span>＋ Tambah stok</span></button>
+        </section>
+
+        <section class="stock-highlight-grid">
+          <div class="stock-highlight panel-card"><span>Jumlah jenis</span><strong id="stockCount">0</strong><small>baris dari data dummy</small></div>
+          <div class="stock-highlight panel-card"><span>Total stok</span><strong id="stockTotal">0</strong><small>eksemplar tersedia</small></div>
+          <div class="stock-highlight panel-card"><span>Stok tertinggi</span><strong id="stockHighest">0</strong><small>eksemplar dalam satu item</small></div>
+        </section>
+
+        <section class="panel-card table-panel">
+          <div class="panel-heading">
+            <div><p class="eyebrow">DAFTAR BAHAN AJAR</p><h2>Inventaris aktif</h2></div>
+            <input class="table-search" id="stockSearch" type="search" placeholder="Cari nama / kode..." aria-label="Cari stok">
+          </div>
+          <div class="table-scroll">
+            <table class="data-table stock-table">
+              <thead>
+                <tr><th>Cover</th><th>Kode lokasi</th><th>Kode barang</th><th>Nama barang</th><th>Jenis</th><th>Edisi</th><th>Stok</th></tr>
+              </thead>
+              <tbody id="stockTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="panel-card add-stock-panel" id="addStockSection">
+          <div class="panel-heading"><div><p class="eyebrow">DOM FORM</p><h2>Tambah baris stok</h2></div><span class="panel-pill">Tanpa backend</span></div>
+          <form id="addStockForm" class="add-stock-form" novalidate>
+            <div class="field-group"><label for="newKodeLokasi">Kode lokasi</label><input class="plain-input" id="newKodeLokasi" required placeholder=""></div>
+            <div class="field-group"><label for="newKodeBarang">Kode barang</label><input class="plain-input" id="newKodeBarang" required placeholder=""></div>
+            <div class="field-group"><label for="newNamaBarang">Nama barang</label><input class="plain-input" id="newNamaBarang" required placeholder=""></div>
+            <div class="field-group"><label for="newJenisBarang">Jenis</label><select class="plain-input" id="newJenisBarang"><option value="BMP">BMP</option><option value="Suplemen">Suplemen</option></select></div>
+            <div class="field-group"><label for="newEdisi">Edisi</label><input class="plain-input" id="newEdisi" type="number" min="1" value="1" required></div>
+            <div class="field-group"><label for="newStok">Stok</label><input class="plain-input" id="newStok" type="number" min="0" value="100" required></div>
+            <div class="field-group field-span-2"><label for="newCover">URL cover (opsional)</label><input class="plain-input" id="newCover" placeholder=""></div>
+            <button class="primary-button" type="submit">Tambahkan ke tabel</button>
+          </form>
+        </section>
+      </main>
+
+      <footer class="footer-note"><span>Data awal: `dataBahanAjar`</span><span>DOM rendering · filtering · append row</span></footer>
+    </div>
+  </div>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/stok.js"></script>
+</body>
+</html>

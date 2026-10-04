@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SITTA Desk - sistem pemesanan dan distribusi bahan ajar Universitas Terbuka">
+  <title>SITTA Desk | Login</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="auth-page">
+  <main class="auth-shell">
+    <section class="auth-visual">
+      <div class="brand-lockup">
+        <div class="brand-mark">S</div>
+        <div>
+          <strong>SITTA Desk</strong>
+          <span>Front-End Simulation</span>
+        </div>
+      </div>
+
+      <div class="visual-copy">
+        <p class="eyebrow">UNIVERSITAS TERBUKA</p>
+        <h1>Kelola bahan ajar dengan alur yang lebih sederhana.</h1>
+        <p>
+          Satu dashboard untuk memantau stok, pengiriman, dan aktivitas bahan ajar.
+          Semua data pada tugas ini disimulasikan dari file JavaScript tanpa backend.
+        </p>
+      </div>
+
+      <div class="visual-stats">
+        <div class="mini-stat">
+          <span>Modul</span>
+          <strong>HTML</strong>
+        </div>
+        <div class="mini-stat">
+          <span>Styling</span>
+          <strong>CSS</strong>
+        </div>
+        <div class="mini-stat">
+          <span>Interaksi</span>
+          <strong>DOM</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="auth-card-wrap">
+      <div class="auth-card">
+        <div class="mobile-brand brand-lockup">
+          <div class="brand-mark">S</div>
+          <div>
+            <strong>SITTA Desk</strong>
+            <span>Front-End Simulation</span>
+          </div>
+        </div>
+
+        <div class="section-heading">
+          <p class="eyebrow">PORTAL AKSES</p>
+          <h2>Selamat datang kembali</h2>
+          <p>Masuk menggunakan akun UPBJJ/Unit yang sudah tersedia pada data dummy.</p>
+        </div>
+
+        <form id="loginForm" class="form-stack" novalidate>
+          <div class="field-group">
+            <label for="email">Email</label>
+            <div class="input-shell">
+              <span class="input-icon">@</span>
+              <input type="email" id="email" name="email" placeholder="nama@ut.ac.id" autocomplete="username" required>
+            </div>
+            <small class="field-error" id="emailError"></small>
+          </div>
+
+          <div class="field-group">
+            <label for="password">Password</label>
+            <div class="input-shell">
+              <span class="input-icon">●</span>
+              <input type="password" id="password" name="password" placeholder="Masukkan password" autocomplete="current-password" required>
+              <button type="button" class="password-toggle" id="togglePassword" aria-label="Tampilkan password">Lihat</button>
+            </div>
+            <small class="field-error" id="passwordError"></small>
+          </div>
+
+          <div class="form-row-between">
+            <label class="checkbox-row">
+              <input type="checkbox" id="rememberMe">
+              <span>Ingat sesi</span>
+            </label>
+            <button type="button" class="text-button" data-modal-target="forgotModal">Lupa Password?</button>
+          </div>
+
+          <button class="primary-button full-width" type="submit">
+            <span>Login ke Dashboard</span>
+            <span aria-hidden="true">→</span>
+          </button>
+        </form>
+
+        <div class="divider"><span>atau</span></div>
+
+        <button class="secondary-button full-width" type="button" data-modal-target="registerModal">Daftar Akun Baru</button>
+
+        <!-- <div class="demo-note">
+          <strong>Akun demo untuk presentasi</strong>
+          <span>admin@ut.ac.id &nbsp;•&nbsp; admin123</span>
+        </div> -->
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="forgotModal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="forgotTitle">
+      <button class="modal-close" data-close-modal aria-label="Tutup modal">×</button>
+      <p class="eyebrow">PEMULIHAN AKUN</p>
+      <h3 id="forgotTitle">Lupa password?</h3>
+      <p>Masukkan email akun UT. Pada versi front-end ini, proses pemulihan hanya disimulasikan melalui pesan berhasil.</p>
+      <form id="forgotForm" class="form-stack">
+        <div class="field-group">
+          <label for="forgotEmail">Email akun</label>
+          <input class="plain-input" type="email" id="forgotEmail" required placeholder="nama@ut.ac.id">
+        </div>
+        <button class="primary-button full-width" type="submit">Kirim Permintaan</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="registerModal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="registerTitle">
+      <button class="modal-close" data-close-modal aria-label="Tutup modal">×</button>
+      <p class="eyebrow">REGISTRASI</p>
+      <h3 id="registerTitle">Buat akun simulasi</h3>
+      <p>Form ini hanya demonstrasi UI. Akun baru tidak disimpan ke backend.</p>
+      <form id="registerForm" class="form-stack">
+        <div class="field-group">
+          <label for="registerName">Nama</label>
+          <input class="plain-input" type="text" id="registerName" required placeholder="Nama lengkap">
+        </div>
+        <div class="field-group">
+          <label for="registerEmail">Email</label>
+          <input class="plain-input" type="email" id="registerEmail" required placeholder="nama@ut.ac.id">
+        </div>
+        <button class="primary-button full-width" type="submit">Daftar</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

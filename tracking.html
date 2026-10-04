@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tracking pengiriman bahan ajar SITTA Desk">
+  <title>SITTA Desk | Tracking</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="app-body" data-page="tracking">
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-top">
+        <a href="dashboard.html" class="brand-lockup sidebar-brand">
+          <div class="brand-mark">S</div>
+          <div><strong>SITTA Desk</strong><span>UT Materials Hub</span></div>
+        </a>
+        <button class="sidebar-close" id="sidebarClose" aria-label="Tutup menu">×</button>
+      </div>
+      <nav class="side-nav" aria-label="Navigasi utama">
+        <a class="nav-item" href="dashboard.html"><span class="nav-icon">⌂</span><span>Dashboard</span></a>
+        <a class="nav-item" href="stok.html"><span class="nav-icon">▦</span><span>Informasi Bahan Ajar</span></a>
+        <a class="nav-item active" href="tracking.html"><span class="nav-icon">➜</span><span>Tracking Pengiriman</span></a>
+        <a class="nav-item" href="dashboard.html#progressSection"><span class="nav-icon">◔</span><span>Monitoring Progress</span></a>
+        <a class="nav-item" href="dashboard.html#rekapSection"><span class="nav-icon">▤</span><span>Rekap Bahan Ajar</span></a>
+        <a class="nav-item" href="dashboard.html#historySection"><span class="nav-icon">↺</span><span>Histori Transaksi</span></a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="support-card"><span class="support-dot"></span><div><strong>Mode praktik</strong><span>Front-end only</span></div></div>
+        <button class="logout-button" id="logoutButton"><span>⇥</span> Keluar</button>
+      </div>
+    </aside>
+
+    <div class="main-column">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="menu-toggle" id="menuToggle" aria-label="Buka menu">☰</button>
+          <div><span class="topbar-kicker">DELIVERY ORDER</span><strong>Tracking Pengiriman</strong></div>
+        </div>
+        <div class="topbar-right">
+          <button class="icon-button" id="themeToggle" aria-label="Ganti tema">☾</button>
+          <div class="user-chip"><div class="avatar" id="userAvatar">A</div><div class="user-copy"><strong id="userName">Administrator</strong><span id="userRole">Administrator</span></div></div>
+        </div>
+      </header>
+
+      <main class="content-area">
+        <section class="page-intro">
+          <div>
+            <p class="eyebrow">FITUR TRACKING</p>
+            <h1>Temukan perjalanan paket</h1>
+            <p>Masukkan nomor Delivery Order yang tersedia pada data dummy untuk melihat detail pengiriman.</p>
+          </div>
+          <div class="search-orb">⌕</div>
+        </section>
+
+        <section class="search-panel panel-card">
+          <form id="trackingForm" class="tracking-search" novalidate>
+            <div class="tracking-input-wrap">
+              <label for="doNumber">Nomor Delivery Order</label>
+              <div class="tracking-input-row">
+                <input type="text" id="doNumber" placeholder="Masukkan nomor DO" autocomplete="off" required>
+                <button class="primary-button" type="submit"><span>Cari</span><span>→</span></button>
+              </div>
+              <!-- <small class="form-hint">Demo lain: 2023005678</small> -->
+            </div>
+          </form>
+        </section>
+
+        <div id="trackingEmpty" class="empty-state panel-card">
+          <div class="empty-icon">⌕</div>
+          <h2>Belum ada pencarian</h2>
+          <p>Masukkan nomor DO lalu tekan tombol Cari. Detail paket akan muncul secara dinamis menggunakan JavaScript DOM.</p>
+        </div>
+
+        <section id="trackingResult" class="tracking-result hidden">
+          <div class="tracking-summary panel-card">
+            <div class="tracking-title-row">
+              <div>
+                <p class="eyebrow">HASIL TRACKING</p>
+                <h2 id="trackingName">-</h2>
+                <span id="trackingDoLabel" class="muted-text">DO -</span>
+              </div>
+              <span id="trackingStatusBadge" class="status-badge">-</span>
+            </div>
+
+            <div class="detail-grid">
+              <div class="detail-box"><span>Ekspedisi</span><strong id="trackingExpedition">-</strong></div>
+              <div class="detail-box"><span>Tanggal kirim</span><strong id="trackingDate">-</strong></div>
+              <div class="detail-box"><span>Jenis paket</span><strong id="trackingPackage">-</strong></div>
+              <div class="detail-box"><span>Total pembayaran</span><strong id="trackingTotal">-</strong></div>
+            </div>
+          </div>
+
+          <div class="timeline-card panel-card">
+            <div class="panel-heading"><div><p class="eyebrow">PERJALANAN</p><h2>Riwayat paket</h2></div><span class="panel-pill" id="trackingCount">0 update</span></div>
+            <div id="trackingTimeline" class="timeline"></div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer-note"><span>Data tracking berasal dari `dataTracking`</span><span>DOM search · conditional rendering</span></footer>
+    </div>
+  </div>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/tracking.js"></script>
+</body>
+</html>

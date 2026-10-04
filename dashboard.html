@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dashboard SITTA Desk">
+  <title>SITTA Desk | Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="app-body" data-page="dashboard">
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-top">
+        <a href="dashboard.html" class="brand-lockup sidebar-brand">
+          <div class="brand-mark">S</div>
+          <div>
+            <strong>SITTA Desk</strong>
+            <span>UT Materials Hub</span>
+          </div>
+        </a>
+        <button class="sidebar-close" id="sidebarClose" aria-label="Tutup menu">×</button>
+      </div>
+
+      <nav class="side-nav" aria-label="Navigasi utama">
+        <a class="nav-item active" href="dashboard.html"><span class="nav-icon">⌂</span><span>Dashboard</span></a>
+        <a class="nav-item" href="stok.html"><span class="nav-icon">▦</span><span>Informasi Bahan Ajar</span></a>
+        <a class="nav-item" href="tracking.html"><span class="nav-icon">➜</span><span>Tracking Pengiriman</span></a>
+        <button class="nav-item nav-button" type="button" data-scroll-target="progressSection"><span class="nav-icon">◔</span><span>Monitoring Progress</span></button>
+        <button class="nav-item nav-button" type="button" data-scroll-target="rekapSection"><span class="nav-icon">▤</span><span>Rekap Bahan Ajar</span></button>
+        <button class="nav-item nav-button" type="button" data-scroll-target="historySection"><span class="nav-icon">↺</span><span>Histori Transaksi</span></button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="support-card">
+          <span class="support-dot"></span>
+          <div>
+            <strong>Mode praktik</strong>
+            <span>Front-end only</span>
+          </div>
+        </div>
+        <button class="logout-button" id="logoutButton"><span>⇥</span> Keluar</button>
+      </div>
+    </aside>
+
+    <div class="main-column">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="menu-toggle" id="menuToggle" aria-label="Buka menu">☰</button>
+          <div>
+            <span class="topbar-kicker">OPERASIONAL BAHAN AJAR</span>
+            <strong>Workspace UPBJJ</strong>
+          </div>
+        </div>
+        <div class="topbar-right">
+          <button class="icon-button" id="themeToggle" aria-label="Ganti tema">☾</button>
+          <div class="user-chip">
+            <div class="avatar" id="userAvatar">A</div>
+            <div class="user-copy">
+              <strong id="userName">Administrator</strong>
+              <span id="userRole">Administrator</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="content-area">
+        <section class="welcome-panel">
+          <div>
+            <p class="eyebrow">DASHBOARD</p>
+            <h1 id="greetingTitle">Selamat pagi</h1>
+            <p id="greetingText">Pantau aktivitas bahan ajar dari satu tempat.</p>
+          </div>
+          <div class="welcome-badge">
+            <span class="status-dot"></span>
+            Data dummy aktif
+          </div>
+        </section>
+
+        <section class="metric-grid" id="rekapSection">
+          <article class="metric-card metric-primary">
+            <div class="metric-top"><span>Total bahan ajar</span><span class="metric-icon">▦</span></div>
+            <strong id="totalMaterials">0</strong>
+            <p>Jenis bahan ajar pada data dummy</p>
+          </article>
+          <article class="metric-card">
+            <div class="metric-top"><span>Total stok</span><span class="metric-icon">◌</span></div>
+            <strong id="totalStock">0</strong>
+            <p>Eksemplar tersedia dari seluruh lokasi</p>
+          </article>
+          <article class="metric-card">
+            <div class="metric-top"><span>DO dipantau</span><span class="metric-icon">➜</span></div>
+            <strong id="totalDO">0</strong>
+            <p>Nomor delivery order pada data tracking</p>
+          </article>
+          <article class="metric-card">
+            <div class="metric-top"><span>Rata-rata stok</span><span class="metric-icon">⌁</span></div>
+            <strong id="averageStock">0</strong>
+            <p>Rata-rata stok per jenis bahan ajar</p>
+          </article>
+        </section>
+
+        <section class="dashboard-grid" id="progressSection">
+          <article class="panel-card progress-panel">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">LAPORAN</p>
+                <h2>Monitoring Progress DO</h2>
+              </div>
+              <a class="small-link" href="tracking.html">Lihat tracking →</a>
+            </div>
+            <div id="progressList" class="progress-list"></div>
+          </article>
+
+          <article class="panel-card quick-panel">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">AKSES CEPAT</p>
+                <h2>Kerjakan dari sini</h2>
+              </div>
+            </div>
+            <div class="quick-actions">
+              <a href="stok.html" class="quick-action"><span class="quick-icon">＋</span><div><strong>Kelola stok</strong><span>Tambah baris bahan ajar</span></div><b>→</b></a>
+              <a href="tracking.html" class="quick-action"><span class="quick-icon">⌕</span><div><strong>Cari delivery order</strong><span>Lihat detail perjalanan paket</span></div><b>→</b></a>
+              <button type="button" class="quick-action" data-scroll-target="historySection"><span class="quick-icon">↺</span><div><strong>Buka histori</strong><span>Ringkasan transaksi terbaru</span></div><b>→</b></button>
+            </div>
+          </article>
+        </section>
+
+        <section class="dashboard-grid bottom-grid" id="historySection">
+          <article class="panel-card">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">HISTORI</p>
+                <h2>Transaksi Bahan Ajar</h2>
+              </div>
+              <span class="panel-pill">Simulasi</span>
+            </div>
+            <div class="history-table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr><th>Nomor DO</th><th>Mahasiswa</th><th>Ekspedisi</th><th>Status</th></tr>
+                </thead>
+                <tbody id="historyTableBody"></tbody>
+              </table>
+            </div>
+          </article>
+
+          <article class="panel-card">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">KETERSEDIAAN</p>
+                <h2>Distribusi Stok</h2>
+              </div>
+              <a href="stok.html" class="small-link">Buka stok →</a>
+            </div>
+            <div id="stockDistribution" class="stock-distribution"></div>
+          </article>
+        </section>
+      </main>
+
+      <footer class="footer-note">
+        <span>© 2026 SITTA Desk — Tugas Praktik STSI4209</span>
+        <span>HTML · CSS · JavaScript DOM</span>
+      </footer>
+    </div>
+  </div>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
